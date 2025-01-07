@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import MovieController from './controllers/MovieController.js';
+import MediaController from './controllers/MediaController.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -14,11 +14,12 @@ const PORT: number = 5001;
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.get('/api/movies/search', MovieController.searchMovies.bind(MovieController));
-app.get('/api/movies/filter', MovieController.filterMovies.bind(MovieController));
-app.get('/api/movies/:id', MovieController.getMovieById.bind(MovieController));
-app.get('/api/movies', MovieController.getAllMovies.bind(MovieController));
+// Media Routes
+app.get('/api/media', MediaController.getAllMedia.bind(MediaController));
+app.get('/api/media/search', MediaController.searchMedia.bind(MediaController));
+app.get('/api/media/:id', MediaController.getMediaById.bind(MediaController));
+app.get('/api/media/type/:type', MediaController.getMediaByType.bind(MediaController));
+app.get('/api/media/genre/:genre', MediaController.getMediaByGenre.bind(MediaController));
 
 // Static file serving
 app.use('/resources', express.static(join(__dirname, 'resources')));
