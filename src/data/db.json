@@ -100,7 +100,7 @@
     {
       "id": 6,
       "description": "A group of scientists invent a time travel machine and must navigate the consequences of altering the past.",
-      "rating": 8.0,
+      "rating": 8,
       "type": "TV Show",
       "status": "Completed",
       "first_air_date": "2017-07-20",
@@ -180,7 +180,7 @@
     {
       "id": 10,
       "description": "A secret government agency works to prevent international crises while navigating political intrigue and betrayal.",
-      "rating": 8.0,
+      "rating": 8,
       "type": "TV Show",
       "status": "Returning Series",
       "first_air_date": "2020-05-18",
@@ -196,6 +196,18 @@
       "movie_name": "Code of Silence",
       "background": "path/to/background_image10.jpg",
       "avatar": "../resources/images/Lost-in-space.png"
+    }
+  ],
+  "user": [
+    {
+      "name": "Thuan",
+      "email": "thuan@gmail.com",
+      "password": "adbAdbc123"
+    },
+    {
+      "name": "sa",
+      "email": "thssuan@gmail.com",
+      "password": "adbAdbc123"
     }
   ]
 }

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { readFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { Media } from '../types/Movie.js';
+import { IMedia } from '../types/Movie.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -14,27 +14,32 @@ class MediaController {
     this.dbPath = join(__dirname, '../data/db.json');
   }
 
-  private async loadMedia(): Promise<Media[]> {
+  private async loadMedia(): Promise<IMedia[]> {
     try {
       const data = await readFile(this.dbPath, 'utf8');
       const dbData = JSON.parse(data);
       console.log('Loaded media items:', dbData.media.length);
       return dbData.media;
-
-   } catch (error) {
+    } catch (error) {
       console.error('Error loading media:', error);
       return []; 
     }
   }
 
-  // Get all media items with optional type filter
+  // Get all media items with pagination
   public async getAllMedia(req: Request, res: Response): Promise<void> {
     try {
-      const { type } = req.query;
+      const { page = "1", limit = "8" } = req.query;
+      const currentPage = Math.max(parseInt(page as string, 10), 1);
+      const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
       const mediaItems = await this.loadMedia();
-      res.json(mediaItems);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const paginatedItems = mediaItems.slice(startIndex, startIndex + itemsPerPage);
+      res.json({
+        totalItems: mediaItems.length,
+        data: paginatedItems,
+      });
     } catch (error) {
-      console.error('Error in getAllMedia:', error);
       res.status(500).json({ error: 'Failed to fetch media items' });
     }
   }
@@ -61,23 +66,25 @@ class MediaController {
   public async getMediaByType(req: Request, res: Response): Promise<void> {
     try {
       const type = req.params.type as string;
-      console.log('Requested type:', type); // Log the raw type parameter
-      
+      const { page = "1", limit = "8" } = req.query;
       const mediaItems = await this.loadMedia();
+      const currentPage = Math.max(parseInt(page as string, 10), 1);
+      const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
+      const startIndex = (currentPage - 1) * itemsPerPage;
       
-      // Convert type parameter to match database format
       const formattedType = type === 'movies' ? 'Movie' : type === 'tv-shows' ? 'TV Show' : undefined;
-      console.log('Formatted type:', formattedType); // Log the formatted type
-      
+
       if (!formattedType) {
-        res.json(mediaItems); // Return all items if type is not recognized
-        return;
+        res.status(400).json({ error: 'Invalid media type' });
+      }else {
+        const filteredItems = mediaItems.filter(m => m.type === formattedType);
+        const paginatedItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
+  
+        res.json({
+          totalItems: filteredItems.length,
+          data: paginatedItems,
+        });
       }
-      
-      const result = mediaItems.filter(m => m.type === formattedType);
-      console.log('Filtered results count:', result.length); // Log the number of results
-      
-      res.json(result);
     } catch (error) {
       console.error('Error in getMediaByType:', error);
       res.status(500).json({ error: 'Failed to fetch media items' });
@@ -89,19 +96,15 @@ class MediaController {
     try {
       const { query } = req.query;
       const mediaItems = await this.loadMedia();
-      
-      let filteredItems = mediaItems;
-
-      if (query) {
-        const searchQuery = (query as string).toLowerCase();
-        filteredItems = filteredItems.filter(item => 
-          item.movie_name.toLowerCase().includes(searchQuery) ||
-          item.description.toLowerCase().includes(searchQuery) ||
-          item.genres.some(genre => genre.toLowerCase().includes(searchQuery))
-        );
+      if (!query) {
+        res.json(mediaItems);
+        return;
       }
 
-      console.log(`Search results: ${filteredItems.length} items found`);
+      const searchQuery = (query as string).toLowerCase();
+      const filteredItems = mediaItems.filter(item => 
+        item.movie_name.toLowerCase().includes(searchQuery)
+      );
       res.json(filteredItems);
     } catch (error) {
       console.error('Error in searchMedia:', error);
@@ -113,16 +116,25 @@ class MediaController {
   public async getMediaByGenre(req: Request, res: Response): Promise<void> {
     try {
       const { genre } = req.params;
+      const { page = "1", limit = "8" } = req.query;
       const mediaItems = await this.loadMedia();
-      
+      const currentPage = Math.max(parseInt(page as string, 10), 1);
+      const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+
       const filteredItems = mediaItems.filter(item => 
         item.genres.some(g => g.toLowerCase() === genre.toLowerCase())
       );
 
-      res.json(filteredItems);
+      const paginatedItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
+
+      res.json({
+        totalItems: filteredItems.length,
+        data: paginatedItems,
+      });
     } catch (error) {
       console.error('Error in getMediaByGenre:', error);
-      res.status(500).json({ error: 'Failed to fetch media items' });
+      res.status(500).json({ error: 'Failed to fetch media items by genre' });
     }
   }
 }
