@@ -89,7 +89,7 @@ class MediaController {
       const startIndex = (currentPage - 1) * itemsPerPage;
       
       const formattedType = type === 'movies' ? 'Movie' : type === 'tv-shows' ? 'TV Show' : undefined;
-      
+
       if (!formattedType) {
         res.status(400).json({ error: 'Invalid media type' });
       }else {
@@ -141,7 +141,7 @@ class MediaController {
       const paginatedItems = userMedia.slice(startIndex, startIndex + itemsPerPage);
 
       if (userMedia.length === 0) {
-        res.status(404).json({ success: false, message: 'No media found for this user' });
+        res.status(404).json({ success: false, data: [],totalItems: userMedia.length });
         return;
       }
 
