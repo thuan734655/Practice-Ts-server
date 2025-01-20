@@ -2,6 +2,7 @@
   "media": [
     {
       "id": 1,
+      "title": "Have You Seen Our Robot?",
       "description": "The mission to save Scarecrow takes an unexpected turn, throwing the Resolute into chaos. Judy hatches a plan to get a ship to Alpha Centauri.",
       "rating": 8.1,
       "type": "TV Show",
@@ -18,27 +19,12 @@
       ],
       "movie_name": "Have You Seen Our Robot?",
       "background": "../resources/images/Avengers-Endgame-bgr.png",
-      "avatar": "../resources/images/Avengers-Endgame.png"
-    },
-    {
-      "id": 2,
-      "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
-      "rating": 8.3,
-      "type": "Movie",
-      "status": "Released",
-      "release_date": "2019-04-24",
-      "run_time": "181 min",
-      "genres": [
-        "Adventure",
-        "Science Fiction",
-        "Action"
-      ],
-      "movie_name": "Avengers: Endgame",
-      "background": "../resources/images/BigBang.png",
-      "avatar": "../resources/images/BigBang.png"
+      "avatar": "../resources/images/Avengers-Endgame.png",
+      "author": "Thuan"
     },
     {
       "id": 3,
+      "title": "The Lost Galaxy",
       "description": "A space expedition goes awry, and the crew must navigate through uncharted regions of the universe to find their way home.",
       "rating": 7.9,
       "type": "TV Show",
@@ -55,58 +41,21 @@
       ],
       "movie_name": "The Lost Galaxy",
       "background": "path/to/background_image3.jpg",
-      "avatar": "../resources/images/black-widow.png"
-    },
-    {
-      "id": 4,
-      "description": "A team of explorers discovers ancient underwater ruins that might hold the key to unlocking Earth's greatest mysteries.",
-      "rating": 8.2,
-      "type": "TV Show",
-      "status": "Completed",
-      "first_air_date": "2019-02-18",
-      "last_air_date": "2020-08-30",
-      "number_of_seasons": 1,
-      "number_of_episodes": 10,
-      "episode_run_time": "40 min",
-      "genres": [
-        "Action & Adventure",
-        "Mystery",
-        "Drama"
-      ],
-      "movie_name": "Underwater Mysteries",
-      "background": "path/to/background_image4.jpg",
-      "avatar": "../resources/images/friend.png"
-    },
-    {
-      "id": 5,
-      "description": "Follow the crew of the Starship Valiant as they encounter hostile alien races and explore distant star systems.",
-      "rating": 7.5,
-      "type": "TV Show",
-      "status": "Returning Series",
-      "first_air_date": "2021-03-15",
-      "last_air_date": "2022-04-12",
-      "number_of_seasons": 2,
-      "number_of_episodes": 22,
-      "episode_run_time": "55 min",
-      "genres": [
-        "Action & Adventure",
-        "Sci-Fi & Fantasy",
-        "Thriller"
-      ],
-      "movie_name": "Starship Chronicles",
-      "background": "path/to/background_image5.jpg",
-      "avatar": "../resources/images/your-mother.png"
+      "avatar": "../resources/images/black-widow.png",
+      "author": "ff"
     },
     {
       "id": 6,
+      "title": "Time Rewind",
       "description": "A group of scientists invent a time travel machine and must navigate the consequences of altering the past.",
       "rating": 8,
       "type": "TV Show",
       "status": "Completed",
-      "first_air_date": "2017-07-20",
-      "last_air_date": "2018-12-15",
-      "number_of_seasons": 1,
-      "number_of_episodes": 12,
+      "first_air_date": "2017-06-29",
+      "release_date": "2017-07-20",
+      "last_air_date": "2018-12-19",
+      "number_of_seasons": 319,
+      "number_of_episodes": 122,
       "episode_run_time": "60 min",
       "genres": [
         "Sci-Fi & Fantasy",
@@ -114,11 +63,13 @@
         "Thriller"
       ],
       "movie_name": "Time Rewind",
-      "background": "path/to/background_image6.jpg",
-      "avatar": "../resources/images/two-man.png"
+      "background": "resources/images/background-1737353986704-776775504.jpg",
+      "avatar": "resources/images/avatar-1737354875603-773309946.jpg",
+      "author": "ff"
     },
     {
       "id": 7,
+      "title": "Echoes of the Future",
       "description": "A young woman discovers she is the key to saving humanity from a dystopian future, but first, she must uncover the truth.",
       "rating": 8.3,
       "type": "TV Show",
@@ -135,30 +86,12 @@
       ],
       "movie_name": "Echoes of the Future",
       "background": "path/to/background_image7.jpg",
-      "avatar": "../resources/images/sang-chi.png"
-    },
-    {
-      "id": 8,
-      "description": "A team of archaeologists unearths an ancient artifact that leads them on a quest for hidden treasures and dangerous secrets.",
-      "rating": 7.6,
-      "type": "Movie",
-      "status": "Ongoing",
-      "first_air_date": "2023-04-01",
-      "last_air_date": "2025-05-10",
-      "number_of_seasons": 1,
-      "number_of_episodes": 12,
-      "episode_run_time": "52 min",
-      "genres": [
-        "Action & Adventure",
-        "Mystery",
-        "Drama"
-      ],
-      "movie_name": "Ancient Secrets",
-      "background": "path/to/background_image8.jpg",
-      "avatar": "../resources/images/Money-heist.png"
+      "avatar": "../resources/images/sang-chi.png",
+      "author": "Thuan"
     },
     {
       "id": 9,
+      "title": "The Alien Invasion",
       "description": "A peaceful planet is attacked by an alien race, and the inhabitants must fight back to save their world.",
       "rating": 7.8,
       "type": "Movie",
@@ -175,27 +108,90 @@
       ],
       "movie_name": "The Alien Invasion",
       "background": "path/to/background_image9.jpg",
-      "avatar": "../resources/images/loki.png"
+      "avatar": "../resources/images/loki.png",
+      "author": "ff"
     },
     {
-      "id": 10,
-      "description": "A secret government agency works to prevent international crises while navigating political intrigue and betrayal.",
-      "rating": 8,
-      "type": "TV Show",
-      "status": "Returning Series",
-      "first_air_date": "2020-05-18",
-      "last_air_date": "2023-06-10",
-      "number_of_seasons": 3,
-      "number_of_episodes": 36,
-      "episode_run_time": "50 min",
+      "id": 11,
+      "title": "vsdv",
+      "movie_name": "vsdv",
+      "description": "v",
+      "rating": 0.1,
+      "type": "Movie",
+      "status": "vs",
+      "release_date": "2025-01-10",
+      "first_air_date": "2025-01-02",
+      "last_air_date": "2025-01-24",
+      "number_of_seasons": 1,
+      "number_of_episodes": 1,
+      "episode_run_time": "-3",
       "genres": [
-        "Action & Adventure",
-        "Drama",
-        "Thriller"
+        "vs"
       ],
-      "movie_name": "Code of Silence",
-      "background": "path/to/background_image10.jpg",
-      "avatar": "../resources/images/Lost-in-space.png"
+      "background": "resources/images/background-1737303381774-575833911.jpg",
+      "avatar": "resources/images/avatar-1737303381778-159186955.jpg",
+      "author": "Thuan"
+    },
+    {
+      "id": 12,
+      "title": "v",
+      "movie_name": "v",
+      "description": "v",
+      "rating": 0.1,
+      "type": "Movie",
+      "status": "vd",
+      "release_date": null,
+      "first_air_date": null,
+      "last_air_date": null,
+      "number_of_seasons": 0,
+      "number_of_episodes": 1,
+      "episode_run_time": "1",
+      "genres": [
+        "vds"
+      ],
+      "background": "resources/images/background-1737303933120-190766969.png",
+      "avatar": "resources/images/avatar-1737303933126-564608959.png",
+      "author": "Thuan"
+    },
+    {
+      "id": 13,
+      "movie_name": "bds",
+      "description": "s",
+      "rating": 0.1,
+      "type": "Movie",
+      "status": "bsd",
+      "release_date": "2025-01-01",
+      "first_air_date": "2025-01-23",
+      "last_air_date": "2025-01-02",
+      "number_of_seasons": 1,
+      "number_of_episodes": 1,
+      "episode_run_time": "2",
+      "genres": [
+        "dsv"
+      ],
+      "background": "resources/images/background-1737365379032-29900087.png",
+      "avatar": "resources/images/avatar-1737365379040-861201125.png",
+      "author": "Thuan"
+    },
+    {
+      "id": 14,
+      "movie_name": "Underwater Mysteries",
+      "description": "Underwater Mysteries hash fsan jash ",
+      "rating": 0.1,
+      "type": "Movie",
+      "status": "Returning Series",
+      "release_date": "2025-01-24",
+      "first_air_date": "2025-01-10",
+      "last_air_date": "2025-01-23",
+      "number_of_seasons": 2,
+      "number_of_episodes": 0,
+      "episode_run_time": "3",
+      "genres": [
+        "c"
+      ],
+      "background": "resources/images/background-1737373473322-244998482.png",
+      "avatar": "resources/images/avatar-1737373464132-911653295.png",
+      "author": "Thuan"
     }
   ],
   "user": [
@@ -208,6 +204,16 @@
       "name": "sa",
       "email": "thssuan@gmail.com",
       "password": "adbAdbc123"
+    },
+    {
+      "name": "ff",
+      "email": "va@gmass.fasf",
+      "password": "fafsafafa"
+    },
+    {
+      "name": "tthuan1",
+      "email": "thuang@gmail.com",
+      "password": "asdASD123"
     }
   ]
 }
