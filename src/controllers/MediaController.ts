@@ -4,8 +4,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { IMedia } from '../types/Movie.js';
 import fs from 'fs/promises';
-
-
+import { sendResponse } from '../utils/respone.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -25,15 +24,15 @@ class MediaController {
       return dbData.media;
     } catch (error) {
       console.error('Error loading media:', error);
-      return []; 
+      return [];
     }
   }
+
   private async loadDatabase(): Promise<any> {
     const data = await fs.readFile(this.dbPath, 'utf-8');
     return JSON.parse(data);
   }
 
-  // Lưu dữ liệu vào file JSON
   private async saveDatabase(data: any): Promise<void> {
     try {
       await fs.writeFile(this.dbPath, JSON.stringify(data, null, 2), 'utf-8');
@@ -43,21 +42,27 @@ class MediaController {
     }
   }
 
-  // Get all media items with pagination
   public async getAllMedia(req: Request, res: Response): Promise<void> {
     try {
-      const { page = "1", limit = "8" } = req.query;
+      const { page = '1', limit = '8' } = req.query;
       const currentPage = Math.max(parseInt(page as string, 10), 1);
       const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
       const mediaItems = await this.loadMedia();
       const startIndex = (currentPage - 1) * itemsPerPage;
       const paginatedItems = mediaItems.slice(startIndex, startIndex + itemsPerPage);
-      res.json({
-        totalItems: mediaItems.length,
+
+      sendResponse(res, 200, {
+        success: true,
         data: paginatedItems,
+        message: 'Fetched media items successfully',
+        totalItems: mediaItems.length
       });
     } catch (error) {
-      res.status(500).json({ error: 'Failed to fetch media items' });
+      console.error('Error fetching media items:', error);
+      sendResponse(res, 500, {
+        success: false,
+        message: 'Failed to fetch media items',
+      });
     }
   }
 
@@ -66,89 +71,129 @@ class MediaController {
       const id = parseInt(req.params.id);
       const mediaItems = await this.loadMedia();
       const mediaItem = mediaItems.find(m => m.id === id);
-      console.log(mediaItem);
+
       if (mediaItem) {
-        res.json(mediaItem);
+        sendResponse(res, 200, {
+          success: true,
+          data: mediaItem,
+        });
       } else {
-        res.status(404).json({ error: 'Media item not found' });
-      }
-    } catch (error) {
-      console.error('Error in getMediaById:', error);
-      res.status(500).json({ error: 'Failed to fetch media item' });
-    }
-  }
-
-  // Get media items by type (Movie or TV Show)
-  public async getMediaByType(req: Request, res: Response): Promise<void> {
-    try {
-      const type = req.params.type as string;
-      const { page = "1", limit = "8" } = req.query;
-      const mediaItems = await this.loadMedia();
-      const currentPage = Math.max(parseInt(page as string, 10), 1);
-      const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
-      const startIndex = (currentPage - 1) * itemsPerPage;
-      
-      const formattedType = type === 'movies' ? 'Movie' : type === 'tv-shows' ? 'TV Show' : undefined;
-
-      if (!formattedType) {
-        res.status(400).json({ error: 'Invalid media type' });
-      }else {
-        const filteredItems = mediaItems.filter(m => m.type === formattedType);
-        const paginatedItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
-        res.json({
-          totalItems: filteredItems.length,
-          data: paginatedItems,
+        sendResponse(res, 404, {
+          success: false,
+          message: 'Media item not found',
         });
       }
     } catch (error) {
-      console.error('Error in getMediaByType:', error);
-      res.status(500).json({ error: 'Failed to fetch media items' });
+      console.error('Error in getMediaById:', error);
+      sendResponse(res, 500, {
+        success: false,
+        message: 'Failed to fetch media item',
+      });
     }
   }
 
-  // Search media items
-  public async searchMedia(req: Request, res: Response): Promise<void> {
-    try {
-      const { query } = req.query;
-      const mediaItems = await this.loadMedia();
-      if (!query) {
-        res.json(mediaItems);
-        return;
-      }
-
-      const searchQuery = (query as string).toLowerCase();
-      const filteredItems = mediaItems.filter(item => 
-        item.movie_name.toLowerCase().includes(searchQuery)
-      );
-      res.json(filteredItems);
-    } catch (error) {
-      console.error('Error in searchMedia:', error);
-      res.status(500).json({ error: 'Failed to search media items' });
-    }
-  }
   public async getMediaAuthor(req: Request, res: Response): Promise<void> {
     try {
-      const { username } = req.query; 
-
+      const { username } = req.query;
       const dbData = await this.loadMedia();
-
       const userMedia = dbData.filter((item: any) => item.author === username);
-
-      const { page = "1", limit = "8" } = req.query;
+  
+      const { page = '1', limit = '8' } = req.query;
       const currentPage = Math.max(parseInt(page as string, 10), 1);
       const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
       const startIndex = (currentPage - 1) * itemsPerPage;
       const paginatedItems = userMedia.slice(startIndex, startIndex + itemsPerPage);
-
+  
       if (userMedia.length === 0) {
-        res.status(404).json({ success: false, data: [],totalItems: userMedia.length });
+        sendResponse(res, 404, {
+          success: false,
+          message: 'No media found for this author',
+          data: null, 
+          totalItems: 0,
+        });
+        return;
+      }
+  
+      sendResponse(res, 200, {
+        success: true,
+        message: 'Fetched media for the author successfully',
+        data: paginatedItems,
+        totalItems: userMedia.length,
+      });
+    } catch (error) {
+      console.error('Error in getMediaByUsername:', error);
+      sendResponse(res, 500, {
+        success: false,
+        message: 'An error occurred while fetching media',
+        data: null,
+      });
+    }
+  }
+  
+
+  public async getMediaByType(req: Request, res: Response): Promise<void> {
+    try {
+      const type = req.params.type as string;
+      const { page = '1', limit = '8' } = req.query;
+      const mediaItems = await this.loadMedia();
+      const currentPage = Math.max(parseInt(page as string, 10), 1);
+      const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+
+      const formattedType = type === 'movies' ? 'Movie' : type === 'tv-shows' ? 'TV Show' : undefined;
+
+      if (!formattedType) {
+        sendResponse(res, 400, {
+          success: false,
+          message: 'Invalid media type',
+        });
         return;
       }
 
-      res.json({ success: true, data: paginatedItems,totalItems: userMedia.length });
+      const filteredItems = mediaItems.filter(m => m.type === formattedType);
+      const paginatedItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
+
+      sendResponse(res, 200, {
+        success: true,
+        data: paginatedItems,
+        totalItems: filteredItems.length,
+      });
     } catch (error) {
-      console.error('Error in getMediaByUsername:', error);
-      res.status(500).json({ success: false, message: 'An error occurred while fetching media' });
+      console.error('Error in getMediaByType:', error);
+      sendResponse(res, 500, {
+        success: false,
+        message: 'Failed to fetch media items',
+      });
+    }
+  }
+
+  public async searchMedia(req: Request, res: Response): Promise<void> {
+    try {
+      const { query } = req.query;
+      const mediaItems = await this.loadMedia();
+
+      if (!query) {
+        sendResponse(res, 200, {
+          success: true,
+          data: mediaItems,
+        });
+        return;
+      }
+
+      const searchQuery = (query as string).toLowerCase();
+      const filteredItems = mediaItems.filter(item =>
+        item.movie_name.toLowerCase().includes(searchQuery),
+      );
+      sendResponse(res, 200, {
+        success: true,
+        data: filteredItems,
+      });
+    } catch (error) {
+      console.error('Error in searchMedia:', error);
+      sendResponse(res, 500, {
+        success: false,
+        message: 'Failed to search media items',
+      });
     }
   }
 
@@ -170,20 +215,22 @@ class MediaController {
         genres,
         author,
         avatar,
-        background
+        background,
       } = req.body;
 
       if (!movie_name || !description || !rating || !type || !status || !author) {
-        res.status(400).json({ error: 'Missing required fields' });
+        sendResponse(res, 400, {
+          success: false,
+          message: 'Missing required fields',
+        });
         return;
       }
-  
+
       const database = await this.loadDatabase();
       const mediaList = database.media;
-  
       const newId = mediaList.length ? mediaList[mediaList.length - 1].id + 1 : 1;
-  
-      const newMedia:IMedia = {
+
+      const newMedia: IMedia = {
         id: newId,
         movie_name,
         description,
@@ -202,47 +249,60 @@ class MediaController {
         avatar,
         author,
       };
+
       mediaList.push(newMedia);
       database.media = mediaList;
-
       await this.saveDatabase(database);
-  
-      res.status(201).json({ success: true, data: newMedia });
+
+      sendResponse(res, 201, {
+        success: true,
+        data: newMedia,
+      });
     } catch (error) {
       console.error('Error in addMedia:', error);
-      res.status(500).json({ error: 'Failed to add media' });
+      sendResponse(res, 500, {
+        success: false,
+        message: 'Failed to add media',
+      });
     }
   }
+
   public async deleteMedia(req: Request, res: Response): Promise<void> {
     try {
-      const id = parseInt(req.params.id, 10); 
+      const id = parseInt(req.params.id, 10);
       const database = await this.loadDatabase();
       const mediaList = database.media;
-      console.log(id)
-  
+
       const mediaIndex = mediaList.findIndex((media: IMedia) => media.id === id);
-  
+
       if (mediaIndex === -1) {
-        res.status(404).json({ success: false, message: 'Media item not found' });
+        sendResponse(res, 404, {
+          success: false,
+          message: 'Media item not found',
+        });
         return;
       }
-  
+
       mediaList.splice(mediaIndex, 1);
       database.media = mediaList;
-  
       await this.saveDatabase(database);
-  
-      res.json({ success: true, message: 'Media item deleted successfully' });
+
+      sendResponse(res, 200, {
+        success: true,
+        message: 'Media item deleted successfully',
+      });
     } catch (error) {
       console.error('Error in deleteMedia:', error);
-      res.status(500).json({ success: false, message: 'Failed to delete media item' });
+      sendResponse(res, 500, {
+        success: false,
+        message: 'Failed to delete media item',
+      });
     }
   }
-  
+
   public async updateMedia(req: Request, res: Response): Promise<void> {
     try {
       const id = parseInt(req.params.id, 10);
-      console.log(id)
       const {
         movie_name,
         description,
@@ -261,21 +321,20 @@ class MediaController {
         background,
       } = req.body;
 
-      console.log(req.body)
-
-  
       const database = await this.loadDatabase();
       const mediaList = database.media;
-  
       const mediaIndex = mediaList.findIndex((media: IMedia) => media.id === id);
-  
+
       if (mediaIndex === -1) {
-        res.status(404).json({ error: 'Media item not found' });
+        sendResponse(res, 404, {
+          success: false,
+          message: 'Media item not found',
+        });
         return;
       }
-  
+
       const currentMedia = mediaList[mediaIndex];
-  
+
       const updatedMedia: IMedia = {
         ...currentMedia,
         ...(movie_name && { movie_name }),
@@ -294,20 +353,28 @@ class MediaController {
         ...(background && { background }),
         ...(author && { author }),
       };
-  
+
       mediaList[mediaIndex] = updatedMedia;
       database.media = mediaList;
-  
       await this.saveDatabase(database);
-  
-      res.status(200).json({ success: true, data: updatedMedia });
+
+      sendResponse(res, 200, {
+        success: true,
+        data: updatedMedia,
+      });
     } catch (error) {
       console.error('Error in updateMedia:', error);
-      res.status(500).json({ error: 'Failed to update media item' });
+      sendResponse(res, 500, {
+        success: false,
+        message: 'Failed to update media item',
+      });
     }
   }
-  
-  
 }
 
 export default new MediaController();
+
+
+
+
+

@@ -55,7 +55,7 @@ class AuthController {
       }
 
       const { password: _, ...userWithoutPassword } = user; 
-      res.json({ success: true, message: 'Login successful', user: userWithoutPassword });
+      res.json({ success: true, message: 'Login successful', data: { user: userWithoutPassword } });
     } catch (error) {
       console.error('Error in login:', error);
       res.status(500).json({ success: false, message: 'An error occurred during login' });

@@ -110,27 +110,6 @@
       "author": "Thuan"
     },
     {
-      "id": 12,
-      "title": "v",
-      "movie_name": "v",
-      "description": "v",
-      "rating": 0.1,
-      "type": "Movie",
-      "status": "vd",
-      "release_date": null,
-      "first_air_date": null,
-      "last_air_date": null,
-      "number_of_seasons": 0,
-      "number_of_episodes": 1,
-      "episode_run_time": "1",
-      "genres": [
-        "vds"
-      ],
-      "background": "resources/images/background-1737303933120-190766969.png",
-      "avatar": "resources/images/avatar-1737303933126-564608959.png",
-      "author": "Thuan"
-    },
-    {
       "id": 13,
       "movie_name": "bds",
       "description": "s",
@@ -229,6 +208,68 @@
       "background": "resources/images/background-1737380684024-69164818.jpg",
       "avatar": "resources/images/avatar-1737380684025-422653388.png",
       "author": "tthuan1"
+    },
+    {
+      "id": 18,
+      "movie_name": "Underwater Mysteries",
+      "description": "m",
+      "rating": 0.1,
+      "type": "Movie",
+      "status": "Returning Series",
+      "release_date": "2025-01-08",
+      "first_air_date": "2024-12-31",
+      "last_air_date": "2025-01-31",
+      "number_of_seasons": 1,
+      "number_of_episodes": 1,
+      "episode_run_time": "4",
+      "genres": [
+        "Action & Adventure",
+        "Sci-Fi & Fantasy",
+        "Drama"
+      ],
+      "background": "resources/images/background-1737455416548-217961898.png",
+      "avatar": "resources/images/avatar-1737455416558-518900612.png",
+      "author": "nanco432@gmail.com"
+    },
+    {
+      "id": 19,
+      "movie_name": "v",
+      "description": "vds",
+      "rating": 0.1,
+      "type": "TV Show",
+      "status": "bdf",
+      "release_date": "2025-01-22",
+      "first_air_date": "2025-01-09",
+      "last_air_date": "2025-01-13",
+      "number_of_seasons": -39,
+      "number_of_episodes": -11,
+      "episode_run_time": "v",
+      "genres": [
+        "vd"
+      ],
+      "background": "resources/images/background-1737766437351-467834381.png",
+      "avatar": "resources/images/avatar-1737766437356-186578115.jpg",
+      "author": "Thuan"
+    },
+    {
+      "id": 20,
+      "movie_name": "vsd",
+      "description": "vd",
+      "rating": 0,
+      "type": "Movie",
+      "status": "vsd",
+      "release_date": "2025-01-09",
+      "first_air_date": "2025-01-16",
+      "last_air_date": "2025-01-22",
+      "number_of_seasons": 1,
+      "number_of_episodes": 3,
+      "episode_run_time": "v",
+      "genres": [
+        "s"
+      ],
+      "background": "resources/images/background-1737767457640-606104107.png",
+      "avatar": "resources/images/avatar-1737767457647-808743177.png",
+      "author": "Thuan"
     }
   ],
   "user": [
@@ -261,6 +302,16 @@
       "name": "tthuan1",
       "email": "thuavn@gmail.com",
       "password": "thuavn@gmail.com"
+    },
+    {
+      "name": "tthuan1ss",
+      "email": "thuanaa@gmail.com",
+      "password": "thuanaa@gmail.com"
+    },
+    {
+      "name": "nanco432@gmail.com",
+      "email": "nanco432@gmail.com",
+      "password": "nanco432@gmail.com"
     }
   ]
 }
