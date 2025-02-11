@@ -134,13 +134,14 @@ class MediaController {
   public async getMediaByType(req: Request, res: Response): Promise<void> {
     try {
       const type = req.params.type as string;
+      console.log(type)
       const { page = '1', limit = '8' } = req.query;
       const mediaItems = await this.loadMedia();
       const currentPage = Math.max(parseInt(page as string, 10), 1);
       const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
       const startIndex = (currentPage - 1) * itemsPerPage;
 
-      const formattedType = type === 'movies' ? 'Movie' : type === 'tv-shows' ? 'TV Show' : undefined;
+      const formattedType = type === 'Movies' ? 'Movie' : type === 'TV Show' ? 'TV Show' : undefined;
 
       if (!formattedType) {
         sendResponse(res, 400, {
@@ -179,7 +180,7 @@ class MediaController {
         });
         return;
       }
-
+      
       const searchQuery = (query as string).toLowerCase();
       const filteredItems = mediaItems.filter(item =>
         item.movie_name.toLowerCase().includes(searchQuery),
@@ -326,10 +327,7 @@ class MediaController {
       const mediaIndex = mediaList.findIndex((media: IMedia) => media.id === id);
 
       if (mediaIndex === -1) {
-        sendResponse(res, 404, {
-          success: false,
-          message: 'Media item not found',
-        });
+        console.error('Media item not found');
         return;
       }
 
@@ -359,14 +357,12 @@ class MediaController {
       await this.saveDatabase(database);
 
       sendResponse(res, 200, {
-        success: true,
-        data: updatedMedia,
+        success: true
       });
     } catch (error) {
       console.error('Error in updateMedia:', error);
       sendResponse(res, 500, {
-        success: false,
-        message: 'Failed to update media item',
+        success: false  
       });
     }
   }

@@ -74,12 +74,16 @@ class AuthController {
   
       const users = dbData.user || [];
       const existingUser = users.find((u: any) => u.email === email);
+      const existingUserName = users.find((u: any) => u.name === name);
   
       if (existingUser) {
         res.status(409).json({ success: false, message: 'Email already exists' });
         return;
       }
-  
+      if (existingUserName) {
+        res.status(409).json({ success: false, message: 'Name already exists' });
+        return
+      }
       const newUser = { name, email, password };
       users.push(newUser);
   
@@ -87,7 +91,7 @@ class AuthController {
   
       await writeFile(this.dbPath, JSON.stringify(dbData, null, 2), 'utf8');
   
-      res.status(201).json({ success: true, message: 'User registered successfully', user: newUser });
+      res.status(201).json({ success: true, message: 'User registered successfully'});
     } catch (error) {
       console.error('Error in register:', error);
       res.status(500).json({ success: false, message: 'An error occurred during registration' });

@@ -5,7 +5,7 @@
       "title": "Have You Seen Our Robot?",
       "description": "The mission to save Scarecrow takes an unexpected turn, throwing the Resolute into chaos. Judy hatches a plan to get a ship to Alpha Centauri.",
       "rating": 8.1,
-      "type": "TV Show",
+      "type": "Movie",
       "status": "Returning Series",
       "first_air_date": "2018-04-13",
       "last_air_date": "2019-04-24",
@@ -130,26 +130,6 @@
       "author": "Thuan"
     },
     {
-      "id": 14,
-      "movie_name": "Underwater Mysteries",
-      "description": "Underwater Mysteries hash fsan jash ",
-      "rating": 0.1,
-      "type": "Movie",
-      "status": "Returning Series",
-      "release_date": "2025-01-24",
-      "first_air_date": "2025-01-10",
-      "last_air_date": "2025-01-23",
-      "number_of_seasons": 2,
-      "number_of_episodes": 0,
-      "episode_run_time": "3",
-      "genres": [
-        "c"
-      ],
-      "background": "resources/images/background-1737373473322-244998482.png",
-      "avatar": "resources/images/avatar-1737373464132-911653295.png",
-      "author": "Thuan"
-    },
-    {
       "id": 15,
       "movie_name": "v",
       "description": "v",
@@ -210,33 +190,11 @@
       "author": "tthuan1"
     },
     {
-      "id": 18,
-      "movie_name": "Underwater Mysteries",
-      "description": "m",
-      "rating": 0.1,
-      "type": "Movie",
-      "status": "Returning Series",
-      "release_date": "2025-01-08",
-      "first_air_date": "2024-12-31",
-      "last_air_date": "2025-01-31",
-      "number_of_seasons": 1,
-      "number_of_episodes": 1,
-      "episode_run_time": "4",
-      "genres": [
-        "Action & Adventure",
-        "Sci-Fi & Fantasy",
-        "Drama"
-      ],
-      "background": "resources/images/background-1737455416548-217961898.png",
-      "avatar": "resources/images/avatar-1737455416558-518900612.png",
-      "author": "nanco432@gmail.com"
-    },
-    {
       "id": 19,
       "movie_name": "v",
       "description": "vds",
       "rating": 0.1,
-      "type": "TV Show",
+      "type": "Movie",
       "status": "bdf",
       "release_date": "2025-01-22",
       "first_air_date": "2025-01-09",
@@ -311,6 +269,51 @@
     {
       "name": "nanco432@gmail.com",
       "email": "nanco432@gmail.com",
+      "password": "nanco432@gmail.com"
+    },
+    {
+      "name": "2",
+      "email": "thaonguyenvsbsdd@gmail.com",
+      "password": "12222222"
+    },
+    {
+      "name": "g",
+      "email": "nanco432@gmwail.com",
+      "password": "nanco432@gmail.com"
+    },
+    {
+      "name": "1",
+      "email": "nanco41111132@gmail.com",
+      "password": "1234567"
+    },
+    {
+      "name": "1",
+      "email": "nanco4fff32@gmail.com",
+      "password": "nanco432@gmail.com"
+    },
+    {
+      "name": "12",
+      "email": "nanco4v32@gmail.com",
+      "password": "nanco432@gmail.com"
+    },
+    {
+      "name": "b",
+      "email": "ghc@mail.com",
+      "password": "nancggg"
+    },
+    {
+      "name": "fa",
+      "email": "nancso432@gmail.com",
+      "password": "nanco432@gmail.com"
+    },
+    {
+      "name": "l",
+      "email": "nanco32@gmail.com",
+      "password": "nanco432@gmail.com"
+    },
+    {
+      "name": "123",
+      "email": "nanco432mm@gmail.com",
       "password": "nanco432@gmail.com"
     }
   ]
