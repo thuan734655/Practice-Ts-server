@@ -141,9 +141,7 @@ class MediaController {
       const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
       const startIndex = (currentPage - 1) * itemsPerPage;
 
-      const formattedType = type === 'Movies' ? 'Movie' : type === 'TV Show' ? 'TV Show' : undefined;
-
-      if (!formattedType) {
+      if (!type) {
         sendResponse(res, 400, {
           success: false,
           message: 'Invalid media type',
@@ -151,7 +149,8 @@ class MediaController {
         return;
       }
 
-      const filteredItems = mediaItems.filter(m => m.type === formattedType);
+      const filteredItems = mediaItems.filter(m => m.type.toUpperCase() === type.toUpperCase());
+      
       const paginatedItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
 
       sendResponse(res, 200, {
@@ -172,6 +171,7 @@ class MediaController {
     try {
       const { query } = req.query;
       const mediaItems = await this.loadMedia();
+      const limit = 8;
 
       if (!query) {
         sendResponse(res, 200, {
@@ -187,7 +187,7 @@ class MediaController {
       );
       sendResponse(res, 200, {
         success: true,
-        data: filteredItems,
+        data: filteredItems.slice(0, limit),
       });
     } catch (error) {
       console.error('Error in searchMedia:', error);
@@ -357,7 +357,9 @@ class MediaController {
       await this.saveDatabase(database);
 
       sendResponse(res, 200, {
-        success: true
+        success: true,
+        data: updatedMedia,
+        message: 'Media item updated successfully',
       });
     } catch (error) {
       console.error('Error in updateMedia:', error);
