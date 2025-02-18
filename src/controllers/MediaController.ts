@@ -94,11 +94,10 @@ class MediaController {
 
   public async getMediaAuthor(req: Request, res: Response): Promise<void> {
     try {
-      const { username } = req.query;
+      const { username,page , limit } = req.query;
       const dbData = await this.loadMedia();
       const userMedia = dbData.filter((item: any) => item.author === username);
   
-      const { page = '1', limit = '8' } = req.query;
       const currentPage = Math.max(parseInt(page as string, 10), 1);
       const itemsPerPage = Math.max(parseInt(limit as string, 10), 1);
       const startIndex = (currentPage - 1) * itemsPerPage;
@@ -113,7 +112,6 @@ class MediaController {
         });
         return;
       }
-  
       sendResponse(res, 200, {
         success: true,
         message: 'Fetched media for the author successfully',
@@ -133,8 +131,8 @@ class MediaController {
 
   public async getMediaByType(req: Request, res: Response): Promise<void> {
     try {
-      const type = req.params.type as string;
-      console.log(type)
+      let type = req.params.type as string;
+      
       const { page = '1', limit = '8' } = req.query;
       const mediaItems = await this.loadMedia();
       const currentPage = Math.max(parseInt(page as string, 10), 1);
@@ -148,7 +146,9 @@ class MediaController {
         });
         return;
       }
-
+      if(type == "Movies") {
+        type = "Movie";
+      }
       const filteredItems = mediaItems.filter(m => m.type.toUpperCase() === type.toUpperCase());
       
       const paginatedItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
@@ -218,8 +218,7 @@ class MediaController {
         avatar,
         background,
       } = req.body;
-
-      if (!movie_name || !description || !rating || !type || !status || !author) {
+      if (!movie_name || !description || !rating || !type  || !author) {
         sendResponse(res, 400, {
           success: false,
           message: 'Missing required fields',

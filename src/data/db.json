@@ -1,28 +1,6 @@
 {
   "media": [
     {
-      "id": 1,
-      "title": "Have You Seen Our Robot?",
-      "description": "The mission to save Scarecrow takes an unexpected turn, throwing the Resolute into chaos. Judy hatches a plan to get a ship to Alpha Centauri.",
-      "rating": 8.1,
-      "type": "Movie",
-      "status": "Returning Series",
-      "first_air_date": "2018-04-13",
-      "last_air_date": "2019-04-24",
-      "number_of_seasons": 2,
-      "number_of_episodes": 20,
-      "episode_run_time": "56 min",
-      "genres": [
-        "Action & Adventure",
-        "Sci-Fi & Fantasy",
-        "Drama"
-      ],
-      "movie_name": "Have You Seen Our Robot?",
-      "background": "../resources/images/Avengers-Endgame-bgr.png",
-      "avatar": "../resources/images/Avengers-Endgame.png",
-      "author": "Thuan"
-    },
-    {
       "id": 2,
       "title": "The Lost Galaxy",
       "description": "A space expedition goes awry, and the crew must navigate through uncharted regions of the universe to find their way home.",
@@ -45,28 +23,6 @@
       "author": "ff"
     },
     {
-      "id": 3,
-      "title": "Echoes of the Future",
-      "description": "A young woman discovers she is the key to saving humanity from a dystopian future, but first, she must uncover the truth.",
-      "rating": 8.3,
-      "type": "TV Show",
-      "status": "Returning Series",
-      "first_air_date": "2022-01-15",
-      "last_air_date": "2023-06-25",
-      "number_of_seasons": 2,
-      "number_of_episodes": 18,
-      "episode_run_time": "50 min",
-      "genres": [
-        "Action & Adventure",
-        "Sci-Fi & Fantasy",
-        "Drama"
-      ],
-      "movie_name": "Echoes of the Future",
-      "background": "resources/images/background-1737378822081-118180828.png",
-      "avatar": "../resources/images/sang-chi.png",
-      "author": "Thuan"
-    },
-    {
       "id": 4,
       "title": "The Alien Invasion",
       "description": "A peaceful planet is attacked by an alien race, and the inhabitants must fight back to save their world.",
@@ -87,49 +43,6 @@
       "background": "path/to/background_image9.jpg",
       "avatar": "../resources/images/loki.png",
       "author": "ff"
-    },
-    {
-      "id": 7,
-      "title": "Quantum Detectives",
-      "description": "A team of detectives uses cutting-edge quantum technology to solve seemingly impossible crimes across multiple dimensions.",
-      "rating": 8.2,
-      "type": "TV Show",
-      "status": "Returning Series",
-      "first_air_date": "2022-09-05",
-      "last_air_date": "2023-11-20",
-      "number_of_seasons": 2,
-      "number_of_episodes": 24,
-      "episode_run_time": "50 min",
-      "genres": [
-        "Mystery",
-        "Sci-Fi & Fantasy",
-        "Crime"
-      ],
-      "movie_name": "Quantum Detectives",
-      "background": "/placeholder.svg?text=Quantum-Detectives-background",
-      "avatar": "/placeholder.svg?text=Quantum-Detectives-avatar",
-      "author": "Thuan"
-    },
-    {
-      "id": 8,
-      "title": "Echoes of Eternity",
-      "description": "An archaeologist uncovers an ancient artifact that allows her to communicate with past civilizations, uncovering secrets that could change the course of history.",
-      "rating": 7.7,
-      "type": "Movie",
-      "status": "Completed",
-      "release_date": "2023-11-03",
-      "number_of_seasons": 1,
-      "number_of_episodes": 1,
-      "episode_run_time": "135 min",
-      "genres": [
-        "Adventure",
-        "Drama",
-        "Mystery"
-      ],
-      "movie_name": "Echoes of Eternity",
-      "background": "/placeholder.svg?text=Echoes-of-Eternity-background",
-      "avatar": "/placeholder.svg?text=Echoes-of-Eternity-avatar",
-      "author": "Thuan"
     },
     {
       "id": 9,
@@ -175,28 +88,6 @@
       "author": "Thuan"
     },
     {
-      "id": 11,
-      "title": "Galactic Empires",
-      "description": "An epic space opera following the rise and fall of interstellar civilizations as they vie for control of the galaxy.",
-      "rating": 8.8,
-      "type": "TV Show",
-      "status": "Returning Series",
-      "first_air_date": "2023-03-10",
-      "last_air_date": "2024-05-25",
-      "number_of_seasons": 2,
-      "number_of_episodes": 20,
-      "episode_run_time": "65 min",
-      "genres": [
-        "Sci-Fi & Fantasy",
-        "Drama",
-        "Action & Adventure"
-      ],
-      "movie_name": "Galactic Empires",
-      "background": "/placeholder.svg?text=Galactic-Empires-background",
-      "avatar": "/placeholder.svg?text=Galactic-Empires-avatar",
-      "author": "Thuan"
-    },
-    {
       "id": 12,
       "title": "The Mind Reader",
       "description": "A detective with the ability to read minds must solve a series of impossible crimes while keeping his power a secret.",
@@ -215,71 +106,6 @@
       "movie_name": "The Mind Reader",
       "background": "/placeholder.svg?text=The-Mind-Reader-background",
       "avatar": "/placeholder.svg?text=The-Mind-Reader-avatar",
-      "author": "Thuan"
-    },
-    {
-      "id": 13,
-      "title": "Parallel Lives",
-      "description": "A woman discovers she can communicate with alternate versions of herself in parallel universes, leading to a mind-bending journey of self-discovery.",
-      "rating": 8.4,
-      "type": "TV Show",
-      "status": "Returning Series",
-      "first_air_date": "2022-11-18",
-      "last_air_date": "2024-02-29",
-      "number_of_seasons": 2,
-      "number_of_episodes": 16,
-      "episode_run_time": "55 min",
-      "genres": [
-        "Sci-Fi & Fantasy",
-        "Drama",
-        "Mystery"
-      ],
-      "movie_name": "Parallel Lives",
-      "background": "/placeholder.svg?text=Parallel-Lives-background",
-      "avatar": "/placeholder.svg?text=Parallel-Lives-avatar",
-      "author": "Thuan"
-    },
-    {
-      "id": 14,
-      "title": "The Last Frontier",
-      "description": "In a future where Earth's resources are depleted, a team of pioneers sets out to terraform and colonize a distant planet.",
-      "rating": 8,
-      "type": "Movie",
-      "status": "Completed",
-      "release_date": "2024-03-22",
-      "number_of_seasons": 1,
-      "number_of_episodes": 1,
-      "episode_run_time": "150 min",
-      "genres": [
-        "Sci-Fi & Fantasy",
-        "Adventure",
-        "Drama"
-      ],
-      "movie_name": "The Last Frontier",
-      "background": "/placeholder.svg?text=The-Last-Frontier-background",
-      "avatar": "/placeholder.svg?text=The-Last-Frontier-avatar",
-      "author": "Thuan"
-    },
-    {
-      "id": 15,
-      "title": "Dreamcatchers",
-      "description": "A group of people with the ability to enter and manipulate dreams must stop a nightmare entity from breaking into the waking world.",
-      "rating": 8.3,
-      "type": "TV Show",
-      "status": "Returning Series",
-      "first_air_date": "2023-08-05",
-      "last_air_date": "2024-07-20",
-      "number_of_seasons": 2,
-      "number_of_episodes": 22,
-      "episode_run_time": "52 min",
-      "genres": [
-        "Sci-Fi & Fantasy",
-        "Thriller",
-        "Mystery"
-      ],
-      "movie_name": "Dreamcatchers",
-      "background": "/placeholder.svg?text=Dreamcatchers-background",
-      "avatar": "/placeholder.svg?text=Dreamcatchers-avatar",
       "author": "Thuan"
     },
     {
@@ -820,65 +646,122 @@
       "author": "Thuan"
     },
     {
-      "id": 41,
-      "movie_name": "k",
-      "description": "n",
-      "rating": 0.1,
-      "type": "TV Show",
-      "status": "m",
-      "release_date": "2025-01-28",
-      "first_air_date": "2025-01-31",
-      "last_air_date": "2025-01-28",
-      "number_of_seasons": 1,
-      "number_of_episodes": 1,
-      "episode_run_time": "12",
-      "genres": [
-        "j"
-      ],
-      "background": "resources/images/background-1739641815501-171289350.png",
-      "avatar": "resources/images/avatar-1739641815504-900513307.png",
-      "author": "nanco432@gmail.com"
-    },
-    {
-      "id": 42,
-      "movie_name": "fb",
-      "description": "b",
-      "rating": 1,
+      "id": 44,
+      "movie_name": "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "description": "fccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "title": "s",
+      "rating": 10,
       "type": "Movie",
-      "status": "r",
-      "release_date": "2025-01-30",
-      "first_air_date": "2025-02-26",
-      "last_air_date": "2025-02-17",
-      "number_of_seasons": 1,
-      "number_of_episodes": 1,
-      "episode_run_time": "40",
-      "genres": [
-        "r"
-      ],
-      "background": "resources/images/background-1739641943731-584562820.png",
-      "avatar": "resources/images/avatar-1739641943735-176753446.png",
-      "author": "nanco432@gmail.com"
-    },
-    {
-      "id": 43,
-      "movie_name": "b",
-      "description": "s",
-      "rating": 2,
-      "type": "TV Show",
-      "status": "1",
-      "release_date": "2025-02-12",
-      "first_air_date": "2025-02-10",
-      "last_air_date": "2025-02-20",
-      "number_of_seasons": 3,
-      "number_of_episodes": 2,
-      "episode_run_time": "2 g",
+      "status": "Returning Series",
+      "release_date": "2025-02-18",
+      "first_air_date": null,
+      "last_air_date": null,
+      "episode_run_time": "1",
       "genres": [
         "Action & Adventure",
         "Sci-Fi & Fantasy",
         "Drama"
       ],
-      "background": "resources/images/background-1739641990429-499817941.png",
-      "avatar": "resources/images/avatar-1739641990433-419618633.png",
+      "background": "resources/images/background-1739843911891-699562855.png",
+      "avatar": "resources/images/avatar-1739867669734-734841209.png",
+      "author": "nanco432@gmail.com"
+    },
+    {
+      "id": 45,
+      "movie_name": "v",
+      "description": "a",
+      "title": "aa",
+      "rating": 1,
+      "type": "Movie",
+      "status": "1",
+      "release_date": "2025-02-25",
+      "first_air_date": null,
+      "last_air_date": null,
+      "episode_run_time": "1",
+      "genres": [
+        "1"
+      ],
+      "background": "resources/images/background-1739845040554-667656395.png",
+      "avatar": "resources/images/avatar-1739845040556-434064400.png",
+      "author": "nanco432@gmail.com"
+    },
+    {
+      "id": 46,
+      "movie_name": "g",
+      "description": "d",
+      "title": "s",
+      "rating": 1,
+      "type": "Movie",
+      "status": "1",
+      "release_date": "2025-02-18",
+      "first_air_date": null,
+      "last_air_date": null,
+      "episode_run_time": "1",
+      "genres": [
+        "1"
+      ],
+      "background": "resources/images/background-1739861255184-101185885.png",
+      "avatar": "resources/images/avatar-1739861255193-296055647.png",
+      "author": "nanco432@gmail.com"
+    },
+    {
+      "id": 47,
+      "movie_name": "Underwater Mysteries",
+      "description": "s",
+      "title": "sgg",
+      "rating": 0.1,
+      "type": "TV Show",
+      "status": "1",
+      "release_date": null,
+      "first_air_date": "2025-01-29",
+      "last_air_date": "2025-02-10",
+      "number_of_seasons": 1,
+      "number_of_episodes": 1,
+      "episode_run_time": "2",
+      "genres": [
+        "2"
+      ],
+      "background": "resources/images/background-1739863705190-731696595.png",
+      "avatar": "resources/images/avatar-1739863705193-610130957.png",
+      "author": "nanco432@gmail.com"
+    },
+    {
+      "id": 51,
+      "movie_name": "v",
+      "description": "vvv1",
+      "title": "a",
+      "rating": 1,
+      "type": "TV Show",
+      "status": "Underwater Mysteries",
+      "release_date": null,
+      "first_air_date": "2025-02-05",
+      "last_air_date": "2025-02-12",
+      "number_of_seasons": 1,
+      "number_of_episodes": 1,
+      "episode_run_time": "1",
+      "genres": [
+        "2"
+      ],
+      "background": "resources/images/background-1739865299603-766946823.png",
+      "avatar": "resources/images/avatar-1739865299605-742621940.png",
+      "author": "nanco432@gmail.com"
+    },
+    {
+      "id": 55,
+      "movie_name": "g",
+      "description": "type: { label: 'Type', type: 'select', options: ['Movie', 'TV Show'], required: true },",
+      "title": "11",
+      "rating": 1,
+      "type": "Movie",
+      "release_date": "2025-02-14",
+      "first_air_date": null,
+      "last_air_date": null,
+      "episode_run_time": "4",
+      "genres": [
+        "dsv"
+      ],
+      "background": "resources/images/background-1739867041542-987029311.png",
+      "avatar": "resources/images/avatar-1739867041545-970764492.png",
       "author": "nanco432@gmail.com"
     }
   ],
