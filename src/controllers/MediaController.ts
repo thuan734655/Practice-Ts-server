@@ -20,8 +20,11 @@ class MediaController {
     try {
       const data = await readFile(this.dbPath, 'utf8');
       const dbData = JSON.parse(data);
-      console.log('Loaded media items:', dbData.media.length);
-      return dbData.media;
+  
+      const sortedMedia = dbData.media.sort((a: IMedia, b: IMedia) => b.id - a.id);
+  
+      console.log('Loaded media items:', sortedMedia.length);
+      return sortedMedia;
     } catch (error) {
       console.error('Error loading media:', error);
       return [];
@@ -370,8 +373,4 @@ class MediaController {
 }
 
 export default new MediaController();
-
-
-
-
 
